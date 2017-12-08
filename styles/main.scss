@@ -1,0 +1,868 @@
+
+
+@font-face {
+  font-family: ITCFranklinGothicBook;
+  src: url("../../fonts/ITCFranklinGothicStd-Book.otf") format("opentype");
+}
+
+@font-face {
+  font-family: ITCFranklinGothicMed;
+  src: url("../../fonts/ITCFranklinGothicStd-Med.otf") format("opentype");
+}
+
+@font-face {
+  font-family: ITCFranklinGothicHeavy;
+  src: url("../../fonts/ITCFranklinGothicStd-Hvy.otf") format("opentype");
+}
+
+@import 'normalize';
+
+// COLORS //
+$blue: #146480;
+$blue-opacity: rgba(48, 154, 189, .9);
+$blue-light: #3099BD;
+$orange: #F6A623;
+$white: #EAEFF5;
+
+// WIDTHS //
+$desktop-max-width: 960px;
+
+html {
+  background-color: white;
+  color: $blue;
+}
+
+body {
+  font-family: 'ITCFranklinGothicBook', sans-serif;
+  line-height: 1.2;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $white;
+}
+
+h1,h2 {
+  font-family: 'ITCFranklinGothicHeavy', sans-serif;
+  font-size: 48px;
+}
+
+.container {
+  position: relative;
+  max-width: $desktop-max-width;
+  margin: 0 auto;
+}
+
+.header-subtext {
+  font-family: 'ITCFranklinGothicHeavy', sans-serif;
+  font-size: 24px;
+}
+
+.subheader {
+  font: 24px/1.5 'ITCFranklinGothicHeavy', sans-serif;
+  color: $white;
+  margin-bottom: 1em;
+}
+.subheader .highlight {
+  display: inline;
+  background: $blue-opacity;
+  color: $white;
+  padding: 0.25em;
+}
+.subheader .highlight--wrapping {
+  position: relative;
+  left: 0.25em;
+  padding-left: 0;
+  box-shadow: 0.4em 0 0 $blue-opacity, -0.4em 0 0 $blue-opacity;
+}
+
+
+// Mobile //
+@media (max-width:499px){
+  p {
+    font-size: 14px;
+  }
+
+  .subheader {
+    font-size: 24px;
+  }
+  
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+// Desktop //
+@media (min-width:500px){
+  h1 {
+    font-size: 64px;
+  }
+
+  .header-subtext {
+    font-family: 'ITCFranklinGothicHeavy', sans-serif;
+    font-size: 36px;
+  }
+
+  p {
+    font-size: 18px;
+    max-width: 470px;
+  }
+  .subheader {
+    font-size: 36px; 
+  }
+}
+
+// BUTTONS ////////////////////////
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 7px 14px rgba(50,50,93,.1), 0 3px 6px rgba(0,0,0,.08);
+}
+// END BUTTONS ////////////////////////
+
+
+// NAVIGATION ////////////////////////
+nav {
+  overflow: auto;
+}
+
+nav ul {
+  padding: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: $white;
+}
+
+.nav-logo {
+  text-align: center;
+  color: $white;
+  font-family: 'ITCFranklinGothicHeavy';
+  font-size: 24px;
+  margin-top: 35px;
+}
+
+// Small Screen Mobile
+@media (max-width:320px){
+  header h1 {
+    font-size: 36px;
+  }
+}
+
+// Mobile //
+@media (max-width:499px){
+  nav ul li {
+    display: block;
+    list-style: none outside none;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    line-height: 1;
+  }
+
+  .nav-mobile-body {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: $blue;
+    font-size: 20px;
+    transform: translateY(-30px);
+    opacity: 0;
+    z-index: 100;
+    pointer-events: none;
+    transition: 300ms ease;
+    &.active-nav {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0);
+    }
+  }
+
+  .nav-mobile {
+    position: fixed;
+    left: 15px;
+    top: 15px;
+    cursor: pointer;
+    z-index: 10000;
+    background-color: $blue-light;
+    height: 50px;
+    width: 50px;
+    &.bg-color-nav {
+      background-color: $blue;
+    }
+  }
+
+  #nav-toggle {
+    position: absolute;
+    left: 10px;
+    top: 14px;
+    padding: 9px 30px 14px 0px;
+    span,
+    span:before,
+    span:after {
+      cursor: pointer;
+      border-radius: 1px;
+      height: 3px;
+      width: 30px;
+      background: $white;
+      position: absolute;
+      display: block;
+      content: '';
+      transition: all 300ms ease-in-out;
+    }
+    span:before {
+      top: -10px;
+    }
+    span:after {
+      bottom: -10px;
+    }
+    &.active span {
+      background-color: transparent;
+      &:before,
+      &:after {
+        top: 0;
+      }
+      &:before {
+        transform: rotate(45deg);
+      }
+      &:after {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  nav ul .apply-btn-main-nav {
+    display: block;
+    background: $orange;
+    font-size: 16px;
+    width: 115px;
+    margin: 20px auto 40px;
+  }
+}
+
+// Desktop //
+@media (min-width:500px){
+  nav {
+    text-align: left;
+    max-width: $desktop-max-width;
+    margin: 70px auto 100px;
+    padding: 0 15px;
+    font-size: 20px;
+    font-family: 'ITCFranklinGothicMed', sans-serif;
+  }
+
+  nav ul li {
+    display: inline-block;
+    position: relative;
+    margin-right: 50px;
+
+    a:before, a:after {
+			content: '';
+			position: absolute;
+			width: 0%;
+			height: 3px;
+			top: 100%;
+			margin-top: -0.5px;
+			background: $orange;
+		}
+		a:after {
+			right: 2.5px;
+			background: $orange;
+			transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+		}
+		a:hover:before {
+			background: $orange;
+			width: 100%;
+			transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+		}
+		a:hover:after {
+			background: transparent;
+			width: 100%;
+			transition: 0s;
+		}
+  }
+
+  .apply-btn-main-nav {
+    display: none;
+  }
+
+  .nav-logo {
+    display: none;
+  }
+  
+  .toggle-nav {
+    display: none;
+  }
+}
+
+// Tablet //
+@media (max-width:768px) and (min-width:500px) {
+  nav ul li {
+    font-size: 16px;
+    margin-right: 25px;
+  }
+}
+// END NAVIGATION ////////////////////////
+
+
+// HEADER ////////////////////////
+
+header {
+  background-color: $blue;
+  background-image: url('../../images/hero-bg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: $white;
+  overflow: auto;
+  p {
+    font-family: 'ITCFranklinGothicMed';
+  }
+}
+
+.apply-btn {
+  display: block;
+  background: $orange;
+  color: #FFF;
+  width: 115px;
+  height: 55px;
+  margin: 50px 0;
+  text-decoration: none;
+  text-align: center;
+  line-height: 55px;
+}
+
+// Mobile //
+@media (max-width:499px){
+  .scroll-hero {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  header {
+    //height: 550px;
+    padding: 0 15px;
+
+    h1 {
+      margin-top: 100px;
+      .header-subtext {
+        display: block;
+      }
+    }
+  }
+  @supports (grid-area: auto) {
+    .header-container {
+      display: grid;
+      grid-template-columns: [first-col] 1fr [second-col] 1fr [third-col] 1fr [end];
+      grid-template-rows: [one] 1fr [two] 50px [three] 1fr [four] 1fr;
+      grid-column-gap: 15px;
+
+      h1 {
+        grid-column-start: second-col;
+        grid-column-end: end;
+        margin-bottom: 7px;
+      }
+
+      .header-subtext {
+        max-width: 225px;
+        grid-column-start: first-col;
+        grid-column-end: end;
+        grid-row-start: two;
+      }
+
+      p {
+        grid-column-start: second-col;
+        grid-column-end: end;
+        grid-row-start: three;
+        margin-top: 15px;
+      }
+
+      .apply-btn {
+        grid-column-start: second-col;
+        grid-column-end: end;
+        grid-row-start: four;
+        margin: 0;
+      }
+    }
+  }
+}
+
+// Desktop //
+@media (min-width:500px) {
+
+  header {
+    //height: 750px;
+    h1 {
+      margin: 0;
+    }
+  }
+
+  .scroll-hero {
+    color: $white;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: 'ITCFranklinGothicHeavy';
+    opacity: .6;
+  }
+
+  .header-container {
+    max-width: $desktop-max-width;
+    padding: 0 15px;
+    margin: 0 auto 0;
+
+    @supports (grid-area: auto) {
+      display: grid;
+      grid-template-columns: [first-col] 7fr [second-col] 60px [third-col] 4fr [end];
+      grid-template-rows: [first-row] 1fr [second-row] 2fr [third-row] 1fr [fourth-row] 2fr [end];
+      grid-column-gap: 20px;
+    }
+
+    h1 {
+      grid-column-start: first-col;
+      grid-column-end: second-col;
+      grid-row-start: first-row;
+      grid-row-end: first-row;
+    }
+    .header-subtext {
+      grid-column-start: first-col;
+      grid-column-end: second-col;
+      grid-row-start: second-row;
+      grid-row-end: second-row;
+    }
+    p {
+      grid-column-start: third-col;
+      grid-column-end: end;
+      grid-row-start: second-row;
+      grid-row-end: second-row;
+      margin: 15px 0 0 0;
+    }
+    .apply-btn {
+      grid-column-start: third-col;
+      grid-column-end: end;
+      grid-row-start: fourth-row;
+      grid-row-end: end;
+      margin: 0;
+    }
+    .scroll-hero {
+      grid-column-start: first-col;
+      grid-column-end: first-col;
+      grid-row-start: fourth-row;
+      grid-row-end: end;
+      text-align: right;
+    }
+  }
+}
+
+// Tablet //
+@media (max-width:768px) and (min-width:500px) {
+  .header-container {
+    grid-template-columns: [first-col] 2fr [third-col] 1fr [end];
+    max-height: 500px;
+
+    .header-subtext {
+      grid-column-start: first-col;
+      grid-column-end: third-col;
+    }
+  }
+}
+// END HEADER ////////////////////////
+
+// POSITIONS SECTION ////////////////////////
+.positions {
+  position: relative;
+}
+
+.job-card {
+  display: block;
+  text-decoration: none;
+  color: $blue;
+  position: relative;
+  background-color: white;
+  height: 135px;
+  overflow: hidden;
+}
+
+.job-title {
+  font-family: 'ITCFranklinGothicHeavy', sans-serif;
+  font-size: 20px;
+  max-width: 200px;
+  padding: 20px 0 0 20px;
+}
+
+.job-location {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  font-size: 14px;
+  opacity: .6;
+}
+
+.job-description-download { // download description
+  position: absolute;
+  background-color: $orange;
+  font-family: 'ITCFranklinGothicMed';
+  font-size: 24px;
+  color: #FFFFFF;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateX(-100%);
+  //opacity: 0;
+  transition: 300ms ease;
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 48px;
+    width: 48px;
+    background-image: url('../../images/download-icon.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    right: 26px;
+    top: 43px;
+    &.animate-download-icon {
+      background: blue;
+    }
+  }
+  &.description-hover {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.job-description-download span {
+  display: inline-block;
+  max-width: 170px;
+  margin: 26px 0 0 20px;
+}
+
+// Mobile //
+@media (max-width:499px){
+  .positions {
+    padding: 85px 0 0 0;
+    
+    p {
+      max-width: 330px;
+    }
+  }
+  
+  .job-cards-container {
+    margin-top: 45px;
+    margin-bottom: 100px;
+  }
+
+  .job-card {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .positions .subheader {
+    position: absolute;
+    top: -140px;
+    left: 10px;
+    max-width: 285px;
+  }
+}
+
+// Desktop //
+@media (min-width:500px) {
+  .positions {
+    padding-top: 140px;
+  }
+  .positions .subheader {
+    position: absolute;
+    max-width: 270px;
+    top: -220px;
+    left: -15px;
+  }
+  .positions p {
+    margin: 0 auto;
+  }
+
+  .job-cards-container {
+    margin-top: 105px;
+    margin-bottom: 160px;
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+  }
+
+  .job-card {
+    display: block;
+    width: 306px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+}
+
+@media (max-width:960px) and (min-width:500px) {
+  .positions .subheader {
+    padding-left: 30px;
+  }
+  .job-cards-container {
+    flex-direction: column;
+  }
+  .job-card {
+    width: 306px;
+    margin: 0 auto 20px;
+  }
+}
+// END POSITIONS SECTION ////////////////////////
+
+
+// ABOUT SECTION ////////////////////////
+.about h2 {
+  position: absolute;
+  z-index: 2;
+  span {
+    position: absolute;
+    font-size: 24px;
+    top: 0;
+  }
+}
+
+.polytec-graphic {
+  display: none;
+}
+
+// Mobile //
+@media (max-width:499px){
+
+  .about h2 {
+    padding-top: 25px;
+    margin-top: 0;
+  }
+
+  .about-p {
+    max-width: 330px;
+    padding-top: 45px;
+    margin-bottom: 125px;
+    margin-top: 0;
+  }
+
+  .WI-map {
+    width: 100%;
+    //max-width: 345px;
+  }
+}
+
+// Desktop //
+@media (min-width:500px) {
+
+  .about > .container {
+    margin-bottom: 150px;
+  }
+
+  @supports (grid-area: auto) {
+    .about > .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+    }
+  }
+
+  .about h2 {
+    padding-top: 25px;
+    margin-top: 0;
+  }
+
+  .WI-map {
+    width: 435px;
+    padding-top: 40px;
+  }
+
+  .about-p {
+    margin-top: 30%;
+  }
+
+  .polytec-graphic {
+    height: 500px;
+    display: block;
+    background-color: $blue;
+    color: $white;
+    margin-bottom: 250px;
+  }
+
+  .graph-container {
+    position: relative;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .left-graph {
+    position: relative;
+    background-color: $blue-light;
+    width: 50%;
+  }
+
+  .right-graph {
+    position: relative;
+    background-color: $blue;
+    width: 50%;
+  }
+
+  .plus-svg {
+    position: absolute;
+    width: 50px;
+    left: calc(50% - 25px);
+    top: 50px;
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  .grad-svg {
+    position: absolute;
+    width: 300px;
+    left: calc(50% - 150px);
+    bottom: 0;
+    pointer-events: none;
+    z-index: 50;
+  }
+
+  .graph-header {
+    font-family: 'ITCFranklinGothicHeavy';
+    font-size: 36px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 500px;
+    letter-spacing: .09em;
+    pointer-events: none;
+  }
+
+  .slide-in {
+    font-family: 'ITCFranklinGothicMed';
+    font-size: 24px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 51;
+    opacity: .9;
+    span {
+      display: block;
+      max-width: 306px;
+      padding: 15px;
+    }
+  }
+
+  .left-slide-in {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: $blue;
+    transition: 300ms ease;
+    transform: translateX(-100%);
+    &.left-active {
+      transform: translateX(0);
+    }
+  }
+
+  .right-slide-in {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: $blue-light;
+    transition: 300ms ease;
+    transform: translateX(100%);
+    &.right-active {
+      transform: translateX(0);
+    }
+  }
+
+  .polytec-graphic .subheader{
+    position: absolute;
+    text-align: right;
+    max-width: 345px;
+    right: 0;
+    top: -115px;
+    z-index: 55;
+  }
+}
+
+@media (max-width:960px) and (min-width:500px) {
+  .about .container {
+    display: block;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .about h2 {
+    padding-top: 25px;
+    margin-top: 0;
+  }
+
+  .about-p {
+    padding-top: 25px;
+    margin: 0 auto 0;
+  }
+
+  .WI-map {
+    width: 100%;
+  }
+
+  .polytec-graphic {
+    display: none;
+  }
+}
+// END ABOUT SECTION ////////////////////////
+
+
+
+// EXPERIENCE SECTION ////////////////////////
+
+.xp-photo {
+  transform-origin: center center;
+}
+
+// Mobile //
+@media (max-width:499px){
+  .xp-photo {
+    width: 100%;
+    transform: scale(1.03);
+    margin-top: -26px;
+    margin-bottom: 10px;
+    z-index: 0;
+  }
+
+  .experience h2 {
+    position: relative;
+    margin: 0;
+    z-index: 10;
+    span {
+      position: absolute;
+      font-size: 36px;
+    }
+    span:first-of-type {
+      top: -35px;
+    }
+    span:last-of-type {
+      top: 10px;
+      left: 138px
+    }
+  }
+
+  .intern-name {
+    font-family: 'ITCFranklinGothicHeavy';
+    font-size: 18px;
+    margin-top: 30px;
+    .location {
+      font-size: 14px;
+      opacity: .6;
+    }
+  }
+}
+
+
+// Desktop //
+@media (min-width:500px) {
+
+}
+// END EXPERIENCE SECTION ////////////////////////
