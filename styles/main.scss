@@ -678,6 +678,10 @@ header {
 // Desktop //
 @media (min-width:500px) {
 
+  .about {
+    padding-top: 50px;
+  }
+
   .about > .container {
     margin-bottom: 150px;
   }
@@ -1085,7 +1089,8 @@ footer {
   }
 
   .apply-right-column {
-    margin-left: 135px;
+    // margin-left: 135px;
+    margin-left: 25%;
   }
 
   footer {
