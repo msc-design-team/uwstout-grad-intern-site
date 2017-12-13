@@ -43,7 +43,6 @@ body {
 
 h1,h2 {
   font-family: 'ITCFranklinGothicHeavy', sans-serif;
-  font-size: 48px;
 }
 
 .container {
@@ -78,6 +77,14 @@ h1,h2 {
 
 // Mobile //
 @media (max-width:499px){
+  h1, h2 {
+    font-size: 48px;
+  }
+
+  h2 span {
+    font-size: 24px;
+  }
+
   p {
     font-size: 14px;
   }
@@ -94,8 +101,12 @@ h1,h2 {
 
 // Desktop //
 @media (min-width:500px){
-  h1 {
+  h1, h2 {
     font-size: 64px;
+  }
+
+  h2 span {
+    font-size: 36px;
   }
 
   .header-subtext {
@@ -109,6 +120,14 @@ h1,h2 {
   }
   .subheader {
     font-size: 36px; 
+  }
+}
+
+// Tablit //
+@media (max-width:960px) and (min-width:500px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 
@@ -619,8 +638,8 @@ header {
   z-index: 2;
   span {
     position: absolute;
-    font-size: 24px;
-    top: 0;
+    font-size: 36px;
+    top: -15px;
   }
 }
 
@@ -631,15 +650,22 @@ header {
 // Mobile //
 @media (max-width:499px){
 
+  .about {
+    padding-top: 100px;
+  }
+
   .about h2 {
-    padding-top: 25px;
-    margin-top: 0;
+    padding-top: 8px;
+    margin-top: -12px;
+    span {
+      font-size: 24px;
+    }
   }
 
   .about-p {
     max-width: 330px;
     padding-top: 45px;
-    margin-bottom: 125px;
+    margin-bottom: 25px;
     margin-top: 0;
   }
 
@@ -683,7 +709,7 @@ header {
     display: block;
     background-color: $blue;
     color: $white;
-    margin-bottom: 250px;
+    margin-bottom: 50px;
   }
 
   .graph-container {
@@ -817,52 +843,318 @@ header {
 
 
 // EXPERIENCE SECTION ////////////////////////
+.experience {
+  display: block;
+}
 
 .xp-photo {
   transform-origin: center center;
+  max-width: 100%;
+}
+
+.intern-name {
+  font-family: 'ITCFranklinGothicHeavy';
+}
+
+.experience h2 {
+  position: relative;
+  margin: 0;
+  z-index: 10;
+  span {
+    position: absolute;
+  }
 }
 
 // Mobile //
 @media (max-width:499px){
+  .experience {
+    margin-top: 100px;
+    padding-top: 100px;
+  }
+
   .xp-photo {
-    width: 100%;
     transform: scale(1.03);
-    margin-top: -26px;
+    margin-top: -23px;
     margin-bottom: 10px;
     z-index: 0;
   }
 
   .experience h2 {
-    position: relative;
-    margin: 0;
-    z-index: 10;
-    span {
-      position: absolute;
-      font-size: 36px;
-    }
     span:first-of-type {
-      top: -35px;
+      top: -23px;
     }
     span:last-of-type {
-      top: 10px;
+      top: 19px;
       left: 138px
     }
   }
 
   .intern-name {
-    font-family: 'ITCFranklinGothicHeavy';
     font-size: 18px;
     margin-top: 30px;
-    .location {
-      font-size: 14px;
-      opacity: .6;
+  }
+
+  .location {
+    font-family: 'ITCFranklinGothicHeavy';
+    font-size: 14px;
+    opacity: .6;
+  }
+}
+
+@media (max-width:960px) and (min-width:500px) {
+  .xp-photo {
+    width: 100%;
+    transform: scale(1);
+    margin-bottom: 30px;
+  }
+
+  .experience-container {
+    flex-direction: column;
+    p {
+      max-width: 100%;
     }
+  }
+
+  .experience h2 {
+    span:first-of-type {
+      top: -35px;
+    }
+    span:last-of-type {
+      top: 23px;
+      left: 185px;
+    }
+  }
+
+  .intern-name {
+    font-family: 'ITCFranklinGothicHeavy';
+    font-size: 24px;
+  }
+
+  .location {
+    font-family: 'ITCFranklinGothicHeavy';
+    font-size: 18px;
+    opacity: .6;
   }
 }
 
 
 // Desktop //
-@media (min-width:500px) {
+@media (min-width:960px) {
 
+  .experience {
+    padding-top: 150px;
+    margin-bottom: 250px;
+  }
+
+  .xp-photo {
+    transform: scale(1.1);
+    margin-top: -12px;
+    margin-bottom: 45px;
+    z-index: 0;
+  }
+
+  .experience h2 {
+    span:first-of-type {
+      top: -35px;
+    }
+    span:last-of-type {
+      top: 23px;
+      left: 185px;
+    }
+  }
+
+  .experience-container {
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-45px);
+    overflow: hidden;
+  }
+  .intern-p {
+    max-width: 306px;
+    p {
+      margin-top: 0;
+      position: relative;
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        background-color: rgba($blue,.15);
+        width: 2px;
+        height: 300%;
+        bottom: 0;
+      }
+    }
+  }
+  .intern-name {
+    font-size: 24px;
+    color: $white;
+    display: inline-block;
+    background: $blue-opacity;
+    color: $white;
+    padding: 0.25em 0.25em 0 0.25em ;
+    margin-bottom: 10px;
+  }
+  .location {
+    font-family: 'ITCFranklinGothicHeavy';
+    font-size: 20px;
+    color: $blue;
+    opacity: .6;
+    max-width: 200px;
+    margin-bottom: 100px;
+  }
 }
 // END EXPERIENCE SECTION ////////////////////////
+
+// APPLY SECTION ////////////////////////
+.apply {
+  background-color: $blue;
+  color: $white;
+  margin-top: 20px;
+  padding-top: 50px;
+}
+
+.apply-section-btn {
+  width: 240px;
+}
+
+.contacts-container {
+  position: relative;
+  font-size: 18px;
+
+  img {
+    width: 140px;
+    margin-bottom: 20px;
+  }
+
+  a {
+    font-family: 'ITCFranklinGothicMed';
+    display: block;
+    color: $white;
+    margin-top: 5px;
+  }
+}
+
+.contact-location {
+  max-width: 215px;
+}
+
+.contact-name {
+  font-family: 'ITCFranklinGothicMed';
+  font-size: 24px;
+  color: $white;
+  display: inline-block;
+  background: $blue-opacity;
+  color: $white;
+  padding: 0.25em 0.25em 0 0.25em ;
+  position: absolute;
+  top: 121px;
+  left: -10px;
+}
+
+footer {
+  margin-top: 50px;
+  padding-bottom: 10px;
+  opacity: .35;
+}
+
+.apply-right-column p {
+  font-family: 'ITCFranklinGothicMed';
+  margin-bottom: 30px;
+}
+
+.contacts-container {
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+// Mobile //
+@media (max-width:499px){
+  .apply {
+    margin-top: 45px;
+    padding-top: 50px;
+    padding-bottom: 15px;
+  }
+
+  .apply-section-btn {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .contacts-container {
+    margin-bottom: 35px;
+  }
+
+  .apply-right-column {
+    margin-left: 135px;
+  }
+
+  footer {
+    margin-top: 135px;
+    margin-bottom: 0;
+  }
+}
+
+// Desktop //
+@media (min-width:960px) {
+
+  .contacts-container {
+    display: inline-block;
+  }
+
+  footer {
+    margin-top: 200px;
+    padding-bottom: 50px;
+  }
+
+  @supports (grid-area: auto) {
+    .apply .container {
+      display: grid;
+      grid-template-columns: [col-1] 5fr [col-2] .5fr [col-3] 6fr [end];
+      grid-template-rows: [row-1] .5fr [row-2] .5fr [row-3] .5fr [row-4] 1fr[end];
+    }
+
+    .apply h2 {
+      grid-column-start: col-1;
+      grid-column-end: col-1;
+      grid-row-start: row-1;
+      grid-row-end: row-1;
+    }
+    .apply p {
+      grid-column-start: col-1;
+      grid-column-end: col-2;
+      grid-row-start: row-2;
+      grid-row-end: row-2;
+    }
+
+    .apply-right-column:first-child {
+      grid-column-start: col-2;
+      grid-column-end: end;
+      grid-row-start: row-2;
+      grid-row-end: end;
+    }
+
+    .apply-right-column {
+      grid-column-start: col-3;
+      grid-column-end: end;
+      grid-row-start: row-2;
+      grid-row-end: end;
+      .contacts-container:first-of-type {
+        margin-left: 30px;
+      } 
+    }
+
+    .apply-section-btn {
+      grid-column-start: col-1;
+      grid-column-end: col-1;
+      grid-row-start: row-3;
+      grid-row-end: row-3;
+    }
+    footer {
+      grid-column-start: col-1;
+      grid-column-end: end;
+      grid-row-start: row-4;
+      grid-row-end: end;
+    }
+  }
+}
+// END APPLY SECTION ////////////////////////
