@@ -373,7 +373,7 @@ header {
   @supports (grid-area: auto) {
     .header-container {
       display: grid;
-      grid-template-columns: [first-col] 1fr [second-col] 1fr [third-col] 1fr [end];
+      grid-template-columns: [first-col] .75fr [second-col] 1fr [third-col] 1fr [end];
       grid-template-rows: [one] 1fr [two] 50px [three] 1fr [four] 1fr;
       grid-column-gap: 15px;
 
