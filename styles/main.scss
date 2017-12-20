@@ -2,20 +2,20 @@
 
 @font-face {
   font-family: ITCFranklinGothicBook;
-  src: url("../../fonts/ITCFranklinGothicStd-Book.otf") format("opentype");
-  // src: url("[[file:ITCFranklinGothicStd_Book]]") format("opentype");
+  // src: url("../../fonts/ITCFranklinGothicStd-Book.otf") format("opentype");
+  src: url("[[file:ITCFranklinGothicStd_Book]]") format("opentype");
 }
 
 @font-face {
   font-family: ITCFranklinGothicMed;
-  src: url("../../fonts/ITCFranklinGothicStd-Med.otf") format("opentype");
-  // src: url("[[file:ITCFranklinGothicStd_Med]]") format("opentype");
+  // src: url("../../fonts/ITCFranklinGothicStd-Med.otf") format("opentype");
+  src: url("[[file:ITCFranklinGothicStd_Med]]") format("opentype");
 }
 
 @font-face {
   font-family: ITCFranklinGothicHeavy;
-  src: url("../../fonts/ITCFranklinGothicStd-Hvy.otf") format("opentype");
-  // src: url("[[file:ITCFranklinGothicStd_Hvy]]") format("opentype");
+  // src: url("../../fonts/ITCFranklinGothicStd-Hvy.otf") format("opentype");
+  src: url("[[file:ITCFranklinGothicStd_Hvy]]") format("opentype");
 }
 
 @import 'normalize';
@@ -336,8 +336,8 @@ nav ul li a {
 
 header {
   background-color: $blue;
-  background-image: url('../../images/hero-bg.png');
-  // background-image: url('[[image:hero_bg]]');
+  // background-image: url('../../images/hero-bg.png');
+  background-image: url('[[image:hero_bg]]');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -543,8 +543,8 @@ header {
     position: absolute;
     height: 48px;
     width: 48px;
-    background-image: url('../../images/download-icon.svg');
-    // background-image: url('[[file:download_icon]]');
+    // background-image: url('../../images/download-icon.svg');
+    background-image: url('[[file:download_icon]]');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
