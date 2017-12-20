@@ -3,16 +3,19 @@
 @font-face {
   font-family: ITCFranklinGothicBook;
   src: url("../../fonts/ITCFranklinGothicStd-Book.otf") format("opentype");
+  // src: url("[[file:ITCFranklinGothicStd_Book]]") format("opentype");
 }
 
 @font-face {
   font-family: ITCFranklinGothicMed;
   src: url("../../fonts/ITCFranklinGothicStd-Med.otf") format("opentype");
+  // src: url("[[file:ITCFranklinGothicStd_Med]]") format("opentype");
 }
 
 @font-face {
   font-family: ITCFranklinGothicHeavy;
   src: url("../../fonts/ITCFranklinGothicStd-Hvy.otf") format("opentype");
+  // src: url("[[file:ITCFranklinGothicStd_Hvy]]") format("opentype");
 }
 
 @import 'normalize';
@@ -271,6 +274,10 @@ nav ul li a {
     font-family: 'ITCFranklinGothicMed', sans-serif;
   }
 
+  .nav-mobile {
+    display: none;
+  }
+
   nav ul li {
     display: inline-block;
     position: relative;
@@ -330,6 +337,7 @@ nav ul li a {
 header {
   background-color: $blue;
   background-image: url('../../images/hero-bg.png');
+  // background-image: url('[[image:hero_bg]]');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -411,7 +419,6 @@ header {
 @media (min-width:500px) {
 
   header {
-    //height: 750px;
     h1 {
       margin: 0;
     }
@@ -537,6 +544,7 @@ header {
     height: 48px;
     width: 48px;
     background-image: url('../../images/download-icon.svg');
+    // background-image: url('[[file:download_icon]]');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
